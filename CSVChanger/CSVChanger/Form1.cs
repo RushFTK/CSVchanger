@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CSVChanger.Sub_Functions;
 
 namespace CSVChanger
 {
@@ -22,7 +23,9 @@ namespace CSVChanger
             //从Text控件获取数据
             String Path_Src = this.SrcPath.Text;
             String Path_Dest = this.DestPath.Text;
-            MessageBox.Show("源：" + Path_Src + "目标文件" + Path_Dest);
+            //          MessageBox.Show("源：" + Path_Src + "\n目标文件" + Path_Dest);
+            FileStreamChange();
+
             try
             {
                 
