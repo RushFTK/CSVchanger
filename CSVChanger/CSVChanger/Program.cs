@@ -29,10 +29,11 @@ namespace CSVChanger
         {
             string source = "{计算方法  运筹学  } 30  \n{计算方法} 30        ";
             string result = null;
-            MatchCollection Matches = Regex.Matches(source, @"\{\s*\S*\s*\}\s*\d*\s*");
+            MatchCollection Matches = Regex.Matches(source, @"\{(\s*\S*\s*)*\}\s*\d*\s*\n?");
             foreach (Match NextMatch in Matches)
             {
-                result += NextMatch.Value;
+                result += NextMatch.Groups[0].Value;
+               // result += NextMatch.Value;
             }
             MessageBox.Show(result);
         }
