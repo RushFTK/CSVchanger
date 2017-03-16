@@ -24,11 +24,9 @@ namespace CSVChanger
             String Path_Src = this.SrcPath.Text;
             String Path_Dest = this.DestPath.Text;
             //          MessageBox.Show("源：" + Path_Src + "\n目标文件" + Path_Dest);
-            FileStreamChange();
-
             try
             {
-                
+                FileStreamChange(Path_Dest, Path_Dest);
             }
             catch (Exception errorcode)
             {
