@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.OpenSrcFile = new System.Windows.Forms.FolderBrowserDialog();
             this.OpenDestFile = new System.Windows.Forms.FolderBrowserDialog();
             this.SrcPath = new System.Windows.Forms.TextBox();
             this.DestPath = new System.Windows.Forms.TextBox();
             this.SelectSrc = new System.Windows.Forms.Button();
             this.SelectDest = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BeginChange = new System.Windows.Forms.Button();
+            this.OpenSrcFile = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -82,6 +82,7 @@
             this.SelectSrc.TabIndex = 4;
             this.SelectSrc.Text = "选择文件...";
             this.SelectSrc.UseVisualStyleBackColor = true;
+            this.SelectSrc.Click += new System.EventHandler(this.SelectSrc_Click);
             // 
             // SelectDest
             // 
@@ -90,25 +91,31 @@
             this.SelectDest.Name = "SelectDest";
             this.SelectDest.Size = new System.Drawing.Size(124, 31);
             this.SelectDest.TabIndex = 5;
-            this.SelectDest.Text = "选择文件...";
+            this.SelectDest.Text = "选择文件夹...";
             this.SelectDest.UseVisualStyleBackColor = true;
+            this.SelectDest.Click += new System.EventHandler(this.SelectDest_Click);
             // 
-            // button3
+            // BeginChange
             // 
-            this.button3.Location = new System.Drawing.Point(262, 103);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 31);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "转换";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BeginChange.Location = new System.Drawing.Point(262, 103);
+            this.BeginChange.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BeginChange.Name = "BeginChange";
+            this.BeginChange.Size = new System.Drawing.Size(84, 31);
+            this.BeginChange.TabIndex = 6;
+            this.BeginChange.Text = "转换";
+            this.BeginChange.UseVisualStyleBackColor = true;
+            this.BeginChange.Click += new System.EventHandler(this.BeginChange_Click);
+            // 
+            // OpenSrcFile
+            // 
+            this.OpenSrcFile.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 147);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.BeginChange);
             this.Controls.Add(this.SelectDest);
             this.Controls.Add(this.SelectSrc);
             this.Controls.Add(this.DestPath);
@@ -118,7 +125,9 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(617, 194);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(617, 194);
             this.Name = "Form1";
             this.Text = "平凡项集转换为CSV表格";
             this.ResumeLayout(false);
@@ -130,13 +139,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FolderBrowserDialog OpenSrcFile;
         private System.Windows.Forms.FolderBrowserDialog OpenDestFile;
         private System.Windows.Forms.TextBox SrcPath;
         private System.Windows.Forms.TextBox DestPath;
         private System.Windows.Forms.Button SelectSrc;
         private System.Windows.Forms.Button SelectDest;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BeginChange;
+        private System.Windows.Forms.OpenFileDialog OpenSrcFile;
     }
 }
 

@@ -16,5 +16,34 @@ namespace CSVChanger
         {
             InitializeComponent();
         }
+
+        private void BeginChange_Click(object sender, EventArgs e)
+        {
+            //从Text控件获取数据
+            String Path_Src = this.SrcPath.Text;
+            String Path_Dest = this.DestPath.Text;
+            MessageBox.Show("源：" + Path_Src + "目标文件" + Path_Dest);
+            try
+            {
+                
+            }
+            catch (Exception errorcode)
+            {
+                MessageBox.Show("转换失败，错误："+ errorcode);
+            }
+
+        }
+
+        private void SelectSrc_Click(object sender, EventArgs e)
+        {
+            if(OpenSrcFile.ShowDialog() == DialogResult.OK)
+                SrcPath.Text = OpenSrcFile.FileName; 
+        }
+
+        private void SelectDest_Click(object sender, EventArgs e)
+        {
+            if (OpenDestFile.ShowDialog() == DialogResult.OK)
+                DestPath.Text = OpenDestFile.SelectedPath;
+        }
     }
 }
