@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.IO;
+
+namespace HelloWorldApplication
+{
+   class HelloWorld
+   {
+      static void Main(string[] args)
+      {
+ 			string source = "{计算方法  运筹学  } 30  \n{计算方法} 30        ";
+            string result = null;
+            MatchCollection Matches = Regex.Matches(source, @"[\u4e00-\u9fa5]+|\d+");
+            foreach (Match NextMatch in Matches)
+            {
+                result += NextMatch.Value + "\n";
+               // result += NextMatch.Value;
+            }
+         Console.WriteLine(result);
+      }
+   }
+}
+
+int i = 0, j;
+            #region 读取图表
+            StreamReader sr1 = new StreamReader(@"..\..\template_graph.txt");
+            string str;                             //临时存储读取结果
+            Regex reg = new Regex(@"[\d]+");        //正则匹配公式 整型数字，用于提取流中数字
+            MatchCollection mcs;                    //存储匹配结果
+            while (true)
+            {
+                j = 0;
+                str = sr1.ReadLine();
+                if (str == null) break;
+                mcs = reg.Matches(str);
+                foreach (Match mc in mcs)               //对所有匹配结果提取的数值，存入图表中
+                {
+                    this.graph[i, j] = Int32.Parse(mc.Value);
+                    j++;
+                }
+                i++;
+            }
+            #endregion
+            for (j = 0; j < i; j++)
+            {
+                class_data[j].init_template(j);
+            }
+            graph_item = i;
+            idcount = i;
+StreamReader sr1 = new StreamReader(@"..\..\template_graph.txt");
+str = sr1.ReadLine();
+
+System.IO.File.WriteAllLines(@"..\..\template_graph_saved.txt", temp, Encoding.UTF8);
+
+FileStream fs = File.OpenRead(path)
